@@ -1,0 +1,32 @@
+class TwoSum:
+
+    def __init__(self):
+        self.contain = []
+
+    def add(self, number: int) -> None:
+        self.contain.append(number)
+        
+
+    def find(self, value: int) -> bool:
+        self.contain.sort()
+        
+        low = 0
+        high = len(self.contain)- 1
+        
+        while low < high:
+            val = self.contain[low] + self.contain[high]
+            if val > value:
+                high -= 1
+            elif val < value:
+                low += 1
+            else:
+                return True
+        return False
+#O(nlogn), 
+
+#overall O(n) for space
+
+# Your TwoSum object will be instantiated and called as such:
+# obj = TwoSum()
+# obj.add(number)
+# param_2 = obj.find(value)
